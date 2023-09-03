@@ -1,11 +1,7 @@
 //^------------ Loading-Page ------------------
-$(document).ready(function(){
-    $('.loading').fadeOut(500,function(){
-       $('body').css('overflow' , 'auto')
 
-       $('.loading').remove()
-    })
-})
+    
+
 //^------------ Loading-Page ------------------
 
 
@@ -82,6 +78,10 @@ async function displayMainScreenMeals(){
 
 
     mainPageContent.innerHTML=box 
+
+    $('.loading').fadeOut(500,function(){
+        $('body').css('overflow' , 'auto')
+     })
 
 }
 
