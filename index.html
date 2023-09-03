@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="image/logo.png" />
+    <title>Yummy</title>
+    <!--^--- fontawesome-link ----->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!--^--- bootstrap-link ------->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--^----- cssFile-link ------->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!--?----------- Main-Loading-Page -------------->
+    <div class="loading">
+        <i class="fas fa-spinner fa-5x text-white fa-spin"></i>
+    </div>
+    <!--?----------- Main-Loading-Page -------------->
+
+
+    <!--?------------ Inner-Loading-Page ------------>
+    <div class="inner-loading text-center ">
+        <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+            <i class="fas fa-spinner fa-5x text-white fa-spin"></i>
+        </div>        
+    </div>
+    <!--?------------ Inner-Loading-Page ------------>
+
+        
+
+    <!--?------------- sideNavbar-start -------------->
+    <section id="sideBar">
+        <div class="inner-div vh-100 d-flex flex-column justify-content-between ">
+            <div class="sections-names">
+                <ul class="p-0 list-links">
+                    <li onclick="searchPage()" class="">Search</li>
+                    <li onclick="categoriesPage()">Categories</li>
+                    <li onclick="areaPage()">Area</li>
+                    <li onclick="ingredientsPage()">Ingredients</li>
+                    <li onclick="contactUsPage()">Contact Us</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="inner-div-icons">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <p>Copyright Â© 2019 All Rights Reserved.</p>
+            </div>
+        </div>
+
+        <div class="outer-div d-flex flex-column justify-content-between align-items-center ">
+            <div>
+                <img class="w-100" src="image/logo.png" alt="">
+            </div>
+
+            <div class="open-icon" id="openIcon">
+                <i class="fa-solid fa-bars fs-2"></i>
+            </div>
+
+            <div class="d-block outer-div-icons">
+                <i class="fa-solid fa-globe d-block fs-6"></i>
+                <i class="fa-solid fa-share-nodes"></i>               
+            </div>
+
+        </div>
+    </section>
+    <!--?------------- sideNavbar-end ---------------->
+
+
+    <!--?------- main-Page-After-Open-start ---------->
+    <section>
+        <div class="container">
+            <div id="photosTemplet" class="row mt-5">
+                <div class="col-md-3">
+                        <div  class="img-div">                       
+                            <img class="w-100 rounded-1" src="" alt="">
+                            <div class="overflow-div rounded-1 d-flex align-items-center">
+                                <h3 class="ms-2"></h3>                               
+                            </div>
+                        </div>              
+                </div>
+            </div>
+
+            <div class="row" id="searchPhotosTemplet">
+                <div class="col-md-3 gy-4">
+                    <div class="img-div">               
+                            <img class="w-100 rounded-1" src="" alt="">
+                            <div class="overflow-div  rounded-1 d-flex align-items-center">
+                                <h3 class="ms-2"></h3>
+                            </div>
+                        </div>       
+                    </div>
+            </div>
+        </div>
+    </section>
+    <!--?-------- main-Page-After-Open-end ----------->
+
+
+    <!--^ bootstrap-js -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
