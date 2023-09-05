@@ -76,7 +76,6 @@ async function displayMainScreenMeals(){
         `      
     }
 
-
     mainPageContent.innerHTML=box 
 
     $('.loading').fadeOut(500,function(){
@@ -90,7 +89,7 @@ displayMainScreenMeals()
 
 
 //^---------------- Get-MeaL-Details -------------------
- let mealDetailsArr=[];
+let mealDetailsArr=[];
 async function getMealDetails(mealID){
     let mealDetails=await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`)
     let mealDetailsReturn=await mealDetails.json();
@@ -101,8 +100,21 @@ async function getMealDetails(mealID){
 
     $('.inner-loading').fadeIn(500)
     
+ 
 
-    
+    let Recipeslists="";
+    let x=mealDetailsArr[0]
+    for(let i = 1 ; i < 20 ; i++){
+        if(x[`strIngredient${i}`]){
+            Recipeslists +=`
+            <li class="alert alert-info m-2 p-1">${x[`strMeasure${i}`]} ${x[`strIngredient${i}`]}</li>
+            `           
+        }   
+    }
+
+
+
+
     let sandook="";
 
     sandook+=`
@@ -120,7 +132,8 @@ async function getMealDetails(mealID){
                 <h3><span class="fw-bolder">Area : </span>${mealDetailsArr[0].strArea}</h3>
                 <h3><span class="fw-bolder">Category : </span>${mealDetailsArr[0].strCategory}</h3>
                 <h3>Recipes :</h3>
-                <ul id="list" class="list-unstyled d-flex g-3 flex-wrap">                   
+                <ul id="list" class="list-unstyled d-flex g-3 flex-wrap"> 
+                ${Recipeslists}                  
                 </ul>
         
                 <h3>Tags :</h3>
@@ -143,68 +156,8 @@ async function getMealDetails(mealID){
     }
    
 
-    let RecipesList =[]
-
-    RecipesList.push(mealDetailsArr[0].strMeasure1)
-    RecipesList.push(mealDetailsArr[0].strMeasure2)
-    RecipesList.push(mealDetailsArr[0].strMeasure3)
-    RecipesList.push(mealDetailsArr[0].strMeasure4)
-    RecipesList.push(mealDetailsArr[0].strMeasure5)
-    RecipesList.push(mealDetailsArr[0].strMeasure6)
-    RecipesList.push(mealDetailsArr[0].strMeasure7)
-    RecipesList.push(mealDetailsArr[0].strMeasure8)
-    RecipesList.push(mealDetailsArr[0].strMeasure9)
-    RecipesList.push(mealDetailsArr[0].strMeasure10)
-    RecipesList.push(mealDetailsArr[0].strMeasure11)
-    RecipesList.push(mealDetailsArr[0].strMeasure12)
-    RecipesList.push(mealDetailsArr[0].strMeasure13)
-    RecipesList.push(mealDetailsArr[0].strMeasure14)
-    RecipesList.push(mealDetailsArr[0].strMeasure15)
-    RecipesList.push(mealDetailsArr[0].strMeasure16)
-    RecipesList.push(mealDetailsArr[0].strMeasure17)
-    RecipesList.push(mealDetailsArr[0].strMeasure18)
-    RecipesList.push(mealDetailsArr[0].strMeasure19)
-    RecipesList.push(mealDetailsArr[0].strMeasure20)
-
-
-
-    let recip=[];
-
-    recip.push(mealDetailsArr[0].strIngredient1)
-    recip.push(mealDetailsArr[0].strIngredient2)
-    recip.push(mealDetailsArr[0].strIngredient3)
-    recip.push(mealDetailsArr[0].strIngredient4)
-    recip.push(mealDetailsArr[0].strIngredient5)
-    recip.push(mealDetailsArr[0].strIngredient6)
-    recip.push(mealDetailsArr[0].strIngredient7)
-    recip.push(mealDetailsArr[0].strIngredient8)
-    recip.push(mealDetailsArr[0].strIngredient9)
-    recip.push(mealDetailsArr[0].strIngredient10)
-    recip.push(mealDetailsArr[0].strIngredient11)
-    recip.push(mealDetailsArr[0].strIngredient12)
-    recip.push(mealDetailsArr[0].strIngredient13)
-    recip.push(mealDetailsArr[0].strIngredient14)
-    recip.push(mealDetailsArr[0].strIngredient15)
-    recip.push(mealDetailsArr[0].strIngredient16)
-    recip.push(mealDetailsArr[0].strIngredient17)
-    recip.push(mealDetailsArr[0].strIngredient18)
-    recip.push(mealDetailsArr[0].strIngredient19)
-    recip.push(mealDetailsArr[0].strIngredient20)
-
-
-    let Recipeslists="";
-    
-    for(let i = 0 ; i < 20 ; i++){
-        if(RecipesList[i] && recip[i] != null && RecipesList[i] && recip[i] != ''){
-            Recipeslists +=`
-            <li class="alert alert-info m-2 p-1">${RecipesList[i]} ${recip[i]}</li>
-            `           
-        }   
-    }
-
 
     mainPageContent.innerHTML=sandook
-    $('#list').html(Recipeslists)
     $('#strTags').html(box7)
     $('#searchPhotosTemplet').html(" ")
     $('.inner-loading').fadeOut(500)
